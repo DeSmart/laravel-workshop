@@ -13,9 +13,10 @@
 
 Route::get('/', 'WelcomeController@index');
 
-Route::get('home', 'HomeController@index');
+Route::get('/hello', function () {
+    return 'Hello, World';
+});
 
-Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
-]);
+Route::get('/example-view', function () {
+    return view('exampleView');
+});
