@@ -36,7 +36,7 @@
 	<body>
 		<div class="container">
 			<div class="content">
-				<div class="title">Look, Mom, no cotroller!</div>
+				<div class="title">Look, Mom, no controller!</div>
 			</div>
 		</div>
 	</body>
