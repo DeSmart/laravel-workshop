@@ -7,7 +7,7 @@ class PostsTableSeeder extends Seeder
 
     public function run()
     {
-        \DB::table('posts')->delete();
+        \DB::table('posts')->truncate();
 
         \App\Post::create([
             'title' => 'Pierwszy wpis',
