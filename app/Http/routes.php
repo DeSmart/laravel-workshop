@@ -20,3 +20,7 @@ Route::get('/hello', function () {
 Route::get('/example-view', function () {
     return view('exampleView');
 });
+
+/**
+ * Trasy dotyczące PostController.
+ */
