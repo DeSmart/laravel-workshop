@@ -3,16 +3,17 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateArticleTable extends Migration {
+class CreateArticleTable extends Migration
+{
 
-	/**
-	 * Run the migrations.
-	 *
-	 * @return void
-	 */
-	public function up()
-	{
-		Schema::create('posts', function (Blueprint $table) {
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('posts', function (Blueprint $table) {
             /**
              * Utworzenie tabeli 'posts'. Powinna zawierać kolumny:
              * - id (primary key, int(10))
@@ -20,18 +21,18 @@ class CreateArticleTable extends Migration {
              * - post_content (text)
              */
         });
-	}
+    }
 
-	/**
-	 * Reverse the migrations.
-	 *
-	 * @return void
-	 */
-	public function down()
-	{
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
         /**
          * Usunięcie tabeli 'posts'
          */
-	}
+    }
 
 }

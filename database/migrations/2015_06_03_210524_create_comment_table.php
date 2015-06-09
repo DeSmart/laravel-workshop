@@ -17,10 +17,10 @@ class CreateCommentTable extends Migration
             /**
              * Utworzenie tabeli 'comments'. Powinna zawierać kolumny:
              * - id (primary key, int(10))
-             * - id_post (int(10))
+             * - post_id (int(10))
              * - comment_content (text)
              *
-             * 'id_post' powinno być kluczem obcym powiązanym z tabelą 'posts'.
+             * 'post_id' powinno być kluczem obcym powiązanym z tabelą 'posts'.
              */
         });
     }
