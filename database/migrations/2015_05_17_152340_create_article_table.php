@@ -14,12 +14,9 @@ class CreateArticleTable extends Migration
     public function up()
     {
         Schema::create('posts', function (Blueprint $table) {
-            /**
-             * Utworzenie tabeli 'posts'. Powinna zawierać kolumny:
-             * - id (primary key, int(10))
-             * - title (varchar(255))
-             * - post_content (text)
-             */
+            $table->increments('id');
+            $table->string('title');
+            $table->text('post_content');
         });
     }
 
@@ -30,9 +27,7 @@ class CreateArticleTable extends Migration
      */
     public function down()
     {
-        /**
-         * Usunięcie tabeli 'posts'
-         */
+        Schema::drop('posts');
     }
 
 }
