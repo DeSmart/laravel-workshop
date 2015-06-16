@@ -7,8 +7,6 @@ class CommentsTableSeeder extends Seeder
 
     public function run()
     {
-        \DB::table('comments')->truncate();
-
         \App\Comment::create([
             'post_id' => 1,
             'comment_content' => 'Meh. Mogłem oglądać śmieszne koty zamiast czytać ten wpis...',
