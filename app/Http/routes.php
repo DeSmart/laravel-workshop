@@ -24,3 +24,4 @@ Route::get('/example-view', function () {
 /**
  * Trasy dotyczące PostController.
  */
+Route::get('/posts', 'PostController@index');

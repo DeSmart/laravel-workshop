@@ -2,6 +2,7 @@
 
 use App\Http\Requests;
 
+use App\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -14,7 +15,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::with('comments')->get();
+
+        return view('posts.index', compact('posts'));
     }
 
     /**
