@@ -66,7 +66,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+
+        return view('posts.edit', compact('post'));
     }
 
     /**
@@ -77,7 +79,14 @@ class PostController extends Controller
      */
     public function update($id)
     {
-        //
+        $post = Post::find($id);
+
+        $post->title = \Input::get('title');
+        $post->post_content = \Input::get('post_content');
+
+        $post->save();
+
+        return \Redirect::to('/posts');
     }
 
     /**

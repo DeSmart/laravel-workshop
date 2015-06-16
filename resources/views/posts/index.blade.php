@@ -14,6 +14,7 @@
                 <div class="panel panel-primary">{{ $comment->comment_content }}</div>
             @endforeach
 
+            <a class="btn btn-default" href="/posts/{{ $post->id }}">Edit post</a>
             <a class="btn btn-danger" href="/posts/{{ $post->id }}/destroy">Delete post</a>
         </div>
     @endforeach
