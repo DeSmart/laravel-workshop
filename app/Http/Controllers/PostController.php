@@ -2,6 +2,7 @@
 
 use App\Http\Requests;
 
+use App\Post;
 use Illuminate\Http\Request;
 
 class PostController extends Controller
@@ -14,7 +15,9 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        $posts = Post::with('comments')->get();
+
+        return view('posts.index', compact('posts'));
     }
 
     /**
@@ -24,7 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('posts.create');
     }
 
     /**
@@ -34,7 +37,14 @@ class PostController extends Controller
      */
     public function store()
     {
-        //
+        $post = new Post;
+
+        $post->title = \Input::get('title');
+        $post->post_content = \Input::get('post_content');
+
+        $post->save();
+
+        return \Redirect::to('/posts');
     }
 
     /**
@@ -56,7 +66,9 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::find($id);
+
+        return view('posts.edit', compact('post'));
     }
 
     /**
@@ -67,7 +79,14 @@ class PostController extends Controller
      */
     public function update($id)
     {
-        //
+        $post = Post::find($id);
+
+        $post->title = \Input::get('title');
+        $post->post_content = \Input::get('post_content');
+
+        $post->save();
+
+        return \Redirect::to('/posts');
     }
 
     /**
@@ -78,7 +97,11 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id);
+
+        $post->delete();
+
+        return \Redirect::to('/posts');
     }
 
 }

@@ -24,3 +24,9 @@ Route::get('/example-view', function () {
 /**
  * Trasy dotyczące PostController.
  */
+Route::get('/posts', 'PostController@index');
+Route::get('/posts/create', 'PostController@create');
+Route::post('/posts/create', 'PostController@store');
+Route::get('/posts/{id}', 'PostController@edit');
+Route::post('/posts/{id}', 'PostController@update');
+Route::get('/posts/{id}/destroy', 'PostController@destroy');

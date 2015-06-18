@@ -14,14 +14,13 @@ class CreateCommentTable extends Migration
     public function up()
     {
         Schema::create('comments', function (Blueprint $table) {
-            /**
-             * Utworzenie tabeli 'comments'. Powinna zawierać kolumny:
-             * - id (primary key, int(10))
-             * - post_id (int(10))
-             * - comment_content (text)
-             *
-             * 'post_id' powinno być kluczem obcym powiązanym z tabelą 'posts'.
-             */
+            $table->increments('id');
+            $table->integer('post_id')->unsigned();
+            $table->text('comment_content');
+
+            $table->foreign('post_id')
+                ->references('id')
+                ->on('posts');
         });
     }
 
@@ -32,9 +31,7 @@ class CreateCommentTable extends Migration
      */
     public function down()
     {
-        /**
-         * Usunięcie tabeli 'comments'
-         */
+        Schema::drop('comments');
     }
 
 }
